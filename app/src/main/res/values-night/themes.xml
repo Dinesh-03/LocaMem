@@ -1,7 +1,18 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.LocaMem" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+    <style name="Base.Theme.LocaMem" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primaryDark</item>
+        <item name="android:statusBarColor">@color/light_blue</item>
+        <item name="android:windowBackground">@color/primaryDark</item>
+    </style>
+
+    <style name="Theme.LocaMem" parent="Base.Theme.LocaMem" />
+
+    <style name="Theme.SplashScreen" parent="Base.Theme.LocaMem"/>
+
+    <style name="Theme.App.SplashScreen" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/primaryDark</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/locamem_logo</item>
+        <item name="postSplashScreenTheme">@style/Base.Theme.LocaMem</item>
     </style>
 </resources>
