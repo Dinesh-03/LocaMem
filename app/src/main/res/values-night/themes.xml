@@ -15,4 +15,42 @@
         <item name="windowSplashScreenAnimatedIcon">@drawable/locamem_logo</item>
         <item name="postSplashScreenTheme">@style/Base.Theme.LocaMem</item>
     </style>
+
+    <style name="DefaultTextStyle">
+        <item name="android:textColorPrimary">@color/white</item>
+    </style>
+
+    <style name="Heading">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Content">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="LoginButton">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:textColor">@color/primaryDark</item>
+        <item name="android:backgroundTint">@color/accent</item>
+    </style>
+
+    <style name="CustomEditTextStyle" parent="@style/Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="android:layout_margin">10dp</item>
+        <item name="endIconTint">@color/accent</item>
+        <item name="hintTextColor">@color/accent</item>
+        <item name="boxBackgroundColor">@color/dark_blue</item>
+        <!--        <item name="android:foreground">?attr/selectableItemBackgroundBorderless</item>-->
+        <item name="boxStrokeColor">@color/accent</item>
+        <item name="boxStrokeWidth">5dp</item>
+        <item name="boxCornerRadiusBottomStart">10dp</item>
+        <item name="boxCornerRadiusBottomEnd">10dp</item>
+        <item name="boxCornerRadiusTopStart">10dp</item>
+        <item name="boxCornerRadiusTopEnd">10dp</item>
+    </style>
+
 </resources>

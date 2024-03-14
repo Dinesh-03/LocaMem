@@ -1,6 +1,9 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    alias(libs.plugins.realmKotlin)
+    kotlin("kapt")
+    alias(libs.plugins.hilt)
 }
 
 android {
@@ -31,7 +34,7 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
     buildFeatures {
         viewBinding = true
@@ -49,5 +52,16 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     implementation(libs.androidx.core.splashscreen)
+    implementation(libs.realm.library.base)
+    implementation(libs.realm.library.sync)
+    implementation(libs.realm.gradle.plugin)
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.hilt.android)
+//    kapt(libs.realm.annotations.processor)
+    kapt(libs.hilt.android.compiler)
+}
 
+kapt {
+    correctErrorTypes = true
 }

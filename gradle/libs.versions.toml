@@ -1,28 +1,45 @@
 [versions]
 agp = "8.3.0"
 coreSplashscreen = "1.0.1"
+hiltAndroid = "2.51"
+hiltAndroidCompiler = "2.51"
 kotlin = "1.9.22"
+realm = "1.11.0"
 coreKtx = "1.12.0"
 junit = "4.13.2"
 junitVersion = "1.1.5"
 espressoCore = "3.5.1"
 appcompat = "1.6.1"
+kotlinxCoroutinesCore = "1.7.1"
+realmAnnotationsProcessor = "10.1.0"
+realmLibraryBase = "1.11.0"
+lifecycleViewmodelKtx = "2.7.0"
 material = "1.11.0"
 activity = "1.8.2"
 constraintlayout = "2.1.4"
+realmGradlePlugin = "10.4.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-core-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "coreSplashscreen" }
+androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycleViewmodelKtx" }
+hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltAndroid" }
+hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hiltAndroidCompiler" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinxCoroutinesCore" }
+realm-annotations-processor = { module = "io.realm:realm-annotations-processor", version.ref = "realmAnnotationsProcessor" }
+realm-library-base = { module = "io.realm.kotlin:library-base", version.ref = "realmLibraryBase" }
+realm-library-sync = { module = "io.realm.kotlin:library-sync", version.ref = "realmLibraryBase" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+realm-gradle-plugin = { module = "io.realm:realm-gradle-plugin", version.ref = "realmGradlePlugin" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-
+realmKotlin = { id = "io.realm.kotlin", version.ref = "realm" }
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hiltAndroid" }

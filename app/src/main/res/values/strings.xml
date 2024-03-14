@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">LocaMem</string>
+    <string name="login">Login</string>
+    <string name="user_name">User Name</string>
+    <string name="password">Password</string>
+    <string name="forgot_password"><u>Forgot Password</u></string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="register_here">Register Here</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="thank_you_for_using_us">Thank you for using us!</string>
+    <string name="reset"><u>Reset</u></string>
+    <string name="retype_password">Retype Password</string>
 </resources>
