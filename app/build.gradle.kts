@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.realmKotlin)
     kotlin("kapt")
     alias(libs.plugins.hilt)
+    alias(libs.plugins.googleAndroidLibrariesMapsplatformSecretsGradlePlugin)
 }
 
 android {
@@ -48,6 +49,7 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.play.services.maps)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -58,8 +60,8 @@ dependencies {
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.hilt.android)
-//    kapt(libs.realm.annotations.processor)
     kapt(libs.hilt.android.compiler)
+    implementation(libs.gms.play.services.location)
 }
 
 kapt {

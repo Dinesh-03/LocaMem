@@ -25,7 +25,7 @@ class LoginViewModel @Inject constructor(private val userRepository: UserReposit
                 val user = userRepository.getUser(userName)
                 _loginResult.value = if (user != null) {
                     if (user.password == password) {
-                        LoginResult.Success
+                        LoginResult.Success(user)
                     } else {
                         LoginResult.Failure(FailureType.WRONG_PASSWORD)
                     }

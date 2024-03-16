@@ -1,7 +1,10 @@
 package com.ktt.locamem.di
 
+import com.ktt.locamem.data.LocationRepository
+import com.ktt.locamem.data.LocationRepositoryImpl
 import com.ktt.locamem.data.UserRepository
 import com.ktt.locamem.data.UserRepositoryImpl
+import com.ktt.locamem.model.LocationData
 import com.ktt.locamem.model.User
 import dagger.Module
 import dagger.Provides
@@ -20,7 +23,8 @@ object RealmDatabase{
     fun provideRealm(): Realm {
         val config = RealmConfiguration.Builder(
             schema = setOf(
-                User::class
+                User::class,
+                LocationData::class
             )
         )
             .compactOnLaunch()
@@ -32,5 +36,11 @@ object RealmDatabase{
     @Provides
     fun provideUserRepository(realm: Realm): UserRepository {
         return UserRepositoryImpl(realm = realm)
+    }
+
+    @Singleton
+    @Provides
+    fun provideLocationRepository(realm: Realm): LocationRepository {
+        return LocationRepositoryImpl(realm = realm)
     }
 }

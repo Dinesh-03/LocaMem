@@ -13,6 +13,7 @@ import com.ktt.locamem.screen.signup.SignUpScreenActivity
 import com.ktt.locamem.util.Constants
 import com.ktt.locamem.util.FailureType
 import com.ktt.locamem.util.LoginResult
+import com.ktt.locamem.util.SharedPreferences
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -27,10 +28,15 @@ class LoginScreenActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         loginViewModel = ViewModelProvider(this)[LoginViewModel::class.java]
+        if (SharedPreferences.getString(this, Constants.USER_PREFERENCE, Constants.USER_NAME).isNotEmpty()){
+            startActivity(Intent(this, HomeScreenActivity::class.java))
+            finish()
+        }
 
         loginViewModel.loginResult.observe(this) {
             when (it) {
-                LoginResult.Success -> {
+                is LoginResult.Success -> {
+                    SharedPreferences.addData(this, Constants.USER_PREFERENCE, Constants.USER_NAME, it.user.userName)
                     startActivity(Intent(this, HomeScreenActivity::class.java))
                     finish()
                 }

@@ -1,17 +1,18 @@
 package com.ktt.locamem.data
 
-import android.util.Log
 import com.ktt.locamem.model.User
 import com.ktt.locamem.util.FailureType
 import com.ktt.locamem.util.LoginResult
 import io.realm.kotlin.Realm
 import io.realm.kotlin.ext.query
+import io.realm.kotlin.notifications.ResultsChange
+import kotlinx.coroutines.flow.Flow
 import org.mongodb.kbson.ObjectId
 
 class UserRepositoryImpl(private val realm: Realm) : UserRepository {
 
-    override fun getUsers(): List<User> {
-        return realm.query<User>().find()
+    override fun getUsers(): Flow<ResultsChange<User>> {
+        return realm.query<User>().find().asFlow()
     }
 
     override suspend fun getUser(userName: String): User? {
@@ -35,8 +36,8 @@ class UserRepositoryImpl(private val realm: Realm) : UserRepository {
 
     override suspend fun deleteUser(userId: ObjectId) {
         realm.write {
-            val user: User = query<User>("_id", userId).find().first()
-            delete(user)
+            val user = query<User>("_id == $0", userId).find().firstOrNull()
+            user?.let { delete(it) }
         }
     }
 

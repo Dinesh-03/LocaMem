@@ -9,7 +9,10 @@ import com.ktt.locamem.model.User
 import com.ktt.locamem.util.FailureType
 import com.ktt.locamem.util.LoginResult
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @HiltViewModel
@@ -27,11 +30,19 @@ class SignUpViewModel @Inject constructor(private val userRepository: UserReposi
             else if (!isValidPassword(password)) _signupResult.value =  LoginResult.Failure(FailureType.INVALID_PASSWORD)
             else {
                 var user = userRepository.getUser(userName)
+//                user?.let { _signupResult.value = LoginResult.Failure(FailureType.USER_EXIST) }
+//                    ?: {
+//                        val newUser = User(userName, password)
+//                        this.launch {
+//                            userRepository.insertUser(newUser)
+//                        }
+//                        _signupResult.value = LoginResult.Success
+//                    }
                 if (user != null) _signupResult.value = LoginResult.Failure(FailureType.USER_EXIST)
                 else {
                     user = User(userName, password)
                     userRepository.insertUser(user)
-                    _signupResult.value = LoginResult.Success
+                    _signupResult.value = LoginResult.Success(user)
                 }
             }
         }

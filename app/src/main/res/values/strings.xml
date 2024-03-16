@@ -10,4 +10,9 @@
     <string name="thank_you_for_using_us">Thank you for using us!</string>
     <string name="reset"><u>Reset</u></string>
     <string name="retype_password">Retype Password</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="current_user">Current User</string>
+    <string name="other_users">Other Users:</string>
+    <string name="logout">Logout</string>
+    <string name="no_other_user_registered">No Other User Registered</string>
 </resources>

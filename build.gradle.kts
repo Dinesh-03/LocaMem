@@ -4,4 +4,5 @@ plugins {
     alias(libs.plugins.jetbrainsKotlinAndroid) apply false
     alias(libs.plugins.realmKotlin) apply false
     alias(libs.plugins.hilt) apply false
+    alias(libs.plugins.googleAndroidLibrariesMapsplatformSecretsGradlePlugin) apply false
 }
