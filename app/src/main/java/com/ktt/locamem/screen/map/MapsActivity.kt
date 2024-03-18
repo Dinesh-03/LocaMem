@@ -63,7 +63,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
         mMap.addMarker(MarkerOptions().position(latLng).title("Marker : ${getDateTime(timeStamp)}"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 13F))
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 18F))
 
         mapsViewModel.locations.observe(this) {
             mMap.clear()

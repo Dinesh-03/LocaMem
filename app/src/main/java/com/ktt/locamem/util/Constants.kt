@@ -18,4 +18,5 @@ object Constants {
     const val LATITUDE = "LATITUDE"
     const val LONGITUDE = "LONGITUDE"
     const val TIMESTAMP = "TIMESTAMP"
+    const val USER_DIALOG_FRAGMENT = "UserDialogFragment"
 }

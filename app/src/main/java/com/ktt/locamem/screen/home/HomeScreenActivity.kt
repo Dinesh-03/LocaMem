@@ -50,11 +50,6 @@ class HomeScreenActivity : AppCompatActivity() {
 
     private val locationItemListener = object : LocationAdapter.LocationItemListener {
         override fun onClickedLocation(location: LocationData) {
-            Toast.makeText(
-                this@HomeScreenActivity,
-                "${location.latitude} ${location.longitude}",
-                Toast.LENGTH_SHORT
-            ).show()
             val intent = Intent(this@HomeScreenActivity, MapsActivity::class.java)
             intent.putExtra(Constants.LATITUDE, location.latitude)
             intent.putExtra(Constants.LONGITUDE, location.longitude)
@@ -84,6 +79,11 @@ class HomeScreenActivity : AppCompatActivity() {
 
         homeViewModel.locations.observe(this) {
             locationAdapter.updateLocations(it.reversed())
+        }
+
+        binding.userName.setOnClickListener {
+            val dialogFragment = UserDialogFragment()
+            dialogFragment.show(supportFragmentManager, Constants.USER_DIALOG_FRAGMENT)
         }
 
     }
@@ -144,7 +144,7 @@ class HomeScreenActivity : AppCompatActivity() {
     @SuppressLint("MissingPermission")
     fun startLocationUpdates() {
         val locationRequest =
-            LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, TimeUnit.MINUTES.toMillis(3))
+            LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, TimeUnit.MINUTES.toMillis(15))
                 .apply {
                     setGranularity(Granularity.GRANULARITY_PERMISSION_LEVEL)
                     setWaitForAccurateLocation(true)
