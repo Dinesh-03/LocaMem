@@ -6,14 +6,14 @@ LocaMem is an Android application built with Kotlin and designed to help you rem
 
 ## Features:
 
-### Location Tracking: Stores your current location every 15 minutes with user permission.
-### Realm Database: Utilizes Realm for efficient and scalable data storage.
-### MVVM Pattern: Provides a clean separation of concerns between UI, data, and logic.
-### Hilt for Dependency Injection: Simplifies dependency management and testing.
-### Home Screen: Shows a list of all stored locations.
-### Click-to-Map: Clicking a location item redirects you to an in-app map with the chosen location marked.
-### Playback Functionality: Playback button replays a visual path of all stored locations.
-### User Management: Allows switching between different users.
+#### Location Tracking: Stores your current location every 15 minutes with user permission.
+#### Realm Database: Utilizes Realm for efficient and scalable data storage.
+#### MVVM Pattern: Provides a clean separation of concerns between UI, data, and logic.
+#### Hilt for Dependency Injection: Simplifies dependency management and testing.
+#### Home Screen: Shows a list of all stored locations.
+#### Click-to-Map: Clicking a location item redirects you to an in-app map with the chosen location marked.
+#### Playback Functionality: Playback button replays a visual path of all stored locations.
+#### User Management: Allows switching between different users.
 
 ## Getting Started:
 
