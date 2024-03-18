@@ -2,14 +2,13 @@ package com.ktt.locamem.screen.signup
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.ktt.locamem.databinding.ActivitySignupScreenBinding
 import com.ktt.locamem.screen.home.HomeScreenActivity
 import com.ktt.locamem.util.Constants
 import com.ktt.locamem.util.FailureType
-import com.ktt.locamem.util.LoginResult
+import com.ktt.locamem.util.Result
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -29,12 +28,12 @@ class SignUpScreenActivity : AppCompatActivity() {
 
         signUpViewModel.signupResult.observe(this) {
             when (it) {
-                is LoginResult.Success -> {
+                is Result.Success -> {
                     startActivity(Intent(this, HomeScreenActivity::class.java))
                     finish()
                 }
 
-                is LoginResult.Failure -> {
+                is Result.Failure -> {
                     when (it.failureType) {
                         FailureType.EMPTY_USER_NAME -> {
                             binding.userNameIl.error = Constants.EMPTY_USER_NAME
@@ -69,6 +68,8 @@ class SignUpScreenActivity : AppCompatActivity() {
 
                         FailureType.INVALID_USERNAME -> {}
                         FailureType.WRONG_PASSWORD -> {}
+                        FailureType.CAPTCHA_NOT_MATCHED -> {}
+                        FailureType.EMPTY_CAPTCHA -> {}
                     }
                 }
             }

@@ -1,8 +1,6 @@
 package com.ktt.locamem.data
 
 import com.ktt.locamem.model.User
-import com.ktt.locamem.util.FailureType
-import com.ktt.locamem.util.LoginResult
 import io.realm.kotlin.Realm
 import io.realm.kotlin.ext.query
 import io.realm.kotlin.notifications.ResultsChange
@@ -26,17 +24,13 @@ class UserRepositoryImpl(private val realm: Realm) : UserRepository {
     }
 
     override suspend fun updateUser(user: User) {
-        realm.write {
-//            findLatest(user)?.let { updatedUser ->
-//                updatedUser.userName = user.userName
-//                updatedUser.password = user.password
-//            }
-        }
+        deleteUser(user.userName)
+        insertUser(user)
     }
 
-    override suspend fun deleteUser(userId: ObjectId) {
+    override suspend fun deleteUser(userName: String) {
         realm.write {
-            val user = query<User>("_id == $0", userId).find().firstOrNull()
+            val user = query<User>("_userName == $0", userName).find().firstOrNull()
             user?.let { delete(it) }
         }
     }

@@ -15,4 +15,8 @@
     <string name="other_users">Other Users:</string>
     <string name="logout">Logout</string>
     <string name="no_other_user_registered">No Other User Registered</string>
+    <string name="forgot_password_title">Forgot Password</string>
+    <string name="new_password">New Password</string>
+    <string name="enter_the_above_captcha">Enter the above Captcha</string>
+    <string name="update">Update</string>
 </resources>

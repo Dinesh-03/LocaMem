@@ -36,7 +36,7 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
-    <style name="LoginButton">
+    <style name="Button">
         <item name="android:textSize">18sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:layout_margin">10dp</item>
@@ -49,7 +49,6 @@
         <item name="endIconTint">@color/accent</item>
         <item name="hintTextColor">@color/accent</item>
         <item name="boxBackgroundColor">@color/dark_blue</item>
-<!--        <item name="android:foreground">?attr/selectableItemBackgroundBorderless</item>-->
         <item name="boxStrokeColor">@color/accent</item>
         <item name="boxStrokeWidth">5dp</item>
         <item name="boxCornerRadiusBottomStart">10dp</item>

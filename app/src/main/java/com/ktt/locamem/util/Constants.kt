@@ -11,6 +11,8 @@ object Constants {
         "Password must be at least 8 characters long and contain each one of lower and upper case letter, number, special character"
     const val RETYPE_EMPTY_PASSWORD = "Please enter Retype Password!"
     const val RETYPE_PASSWORD_NOT_MATCHED = "Password doesn't match!"
+    const val EMPTY_CAPTCHA = "Please enter Captcha!"
+    const val CAPTCHA_NOT_MATCHED = "Captcha not matched!"
     const val LOCATION_REQUEST_CODE = 10001
     const val REQUEST_GPS_SETTINGS = 456
     const val USER_PREFERENCE = "userPreference"

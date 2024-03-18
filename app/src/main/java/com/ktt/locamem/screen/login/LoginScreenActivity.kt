@@ -9,10 +9,11 @@ import com.google.android.material.textfield.TextInputLayout.END_ICON_PASSWORD_T
 import com.google.android.material.textfield.TextInputLayout.EndIconMode
 import com.ktt.locamem.databinding.ActivityLoginScreenBinding
 import com.ktt.locamem.screen.home.HomeScreenActivity
+import com.ktt.locamem.screen.login.forgot_password.ForgotPasswordActivity
 import com.ktt.locamem.screen.signup.SignUpScreenActivity
 import com.ktt.locamem.util.Constants
 import com.ktt.locamem.util.FailureType
-import com.ktt.locamem.util.LoginResult
+import com.ktt.locamem.util.Result
 import com.ktt.locamem.util.SharedPreferences
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -33,15 +34,15 @@ class LoginScreenActivity : AppCompatActivity() {
             finish()
         }
 
-        loginViewModel.loginResult.observe(this) {
+        loginViewModel.result.observe(this) {
             when (it) {
-                is LoginResult.Success -> {
+                is Result.Success -> {
                     SharedPreferences.addData(this, Constants.USER_PREFERENCE, Constants.USER_NAME, it.user.userName)
                     startActivity(Intent(this, HomeScreenActivity::class.java))
                     finish()
                 }
 
-                is LoginResult.Failure -> {
+                is Result.Failure -> {
                     when (it.failureType) {
                         FailureType.INVALID_USERNAME -> {
                             binding.userNameIl.error = Constants.INVALID_USERNAME
@@ -64,6 +65,8 @@ class LoginScreenActivity : AppCompatActivity() {
                         FailureType.RETYPE_PASSWORD_NOT_MATCHED -> {}
                         FailureType.INVALID_PASSWORD -> {}
                         FailureType.USER_EXIST -> {}
+                        FailureType.CAPTCHA_NOT_MATCHED -> {}
+                        FailureType.EMPTY_CAPTCHA -> {}
                     }
                 }
             }
@@ -83,6 +86,10 @@ class LoginScreenActivity : AppCompatActivity() {
 
         binding.signup.setOnClickListener {
             startActivity(Intent(this, SignUpScreenActivity::class.java))
+        }
+
+        binding.forgotPassword.setOnClickListener {
+            startActivity(Intent(this, ForgotPasswordActivity::class.java))
         }
 
     }
