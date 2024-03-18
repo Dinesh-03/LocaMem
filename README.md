@@ -17,13 +17,15 @@ LocaMem is an Android application built with Kotlin and designed to help you rem
 
 ## Getting Started:
 
-Run the application on your Android device.
-Log in or create an account.
-Grant location permission if prompted.
-The home screen will display a list of your stored locations.
-Clicking an item in the list will open the in-app map with the chosen location marked.
-The playback button allows you to visualize a path through all stored locations.
-Tap the username in the toolbar to access user management functionalities.
+Can be able to get the APK from [HERE](https://github.com/Dinesh-03/LocaMem/releases/download/LocaMemApplication/LocaMem.apk)
+
+* Run the application on your Android device.
+* Log in or create an account.
+* Grant location permission if prompted.
+* The home screen will display a list of your stored locations.
+* Clicking an item in the list will open the in-app map with the chosen location marked.
+* The playback button allows you to visualize a path through all stored locations.
+* Tap the username in the toolbar to access user management functionalities.
 
 ## Technology Stack:
 
